@@ -1,0 +1,34 @@
+TaxCalculationApp/
+│
+├── src/
+│   └── com/
+│       └── taxapp/
+│           ├── model/
+│           │   ├── Taxable.java        # Interface for tax calculation
+│           │   ├── Property.java       # Property class with tax logic
+│           │   └── Vehicle.java        # Vehicle class with tax logic
+│           │
+│           ├── service/
+│           │   └── TaxService.java     # Service to calculate totals
+│           │
+│           ├── ui/
+│           │   ├── MainApp.java        # Entry point with menu-driven UI
+│           │   ├── PropertyUI.java     # Handles property input/output
+│           │   └── VehicleUI.java      # Handles vehicle input/output
+│           │
+│           ├── repo/
+│           │   ├── PropertyRepository.java  # Stores property objects
+│           │   └── VehicleRepository.java   # Stores vehicle objects
+│           │
+│           ├── validation/
+│           │   ├── PropertyValidator.java   # Validates property inputs
+│           │   └── VehicleValidator.java    # Validates vehicle inputs
+│           │
+│           ├── exception/
+│           │   └── ValidationException.java # Custom exception for invalid input
+│           │
+│           └── util/
+│               └── FormatUtil.java     # Utility for formatting tax outputs
+│
+├── README.md                          # Project description and instructions
+└── pom.xml / build.gradle             # Build file (if using Maven/Gradle)
