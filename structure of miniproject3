@@ -1,0 +1,72 @@
+OnlineQuizPortal/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/quizportal/
+│   │   │       ├── controller/        # Servlets (Controllers in MVC)
+│   │   │       │   ├── AdminLoginServlet.java
+│   │   │       │   ├── UserLoginServlet.java
+│   │   │       │   ├── RegisterServlet.java
+│   │   │       │   ├── QuizServlet.java
+│   │   │       │   ├── AttemptQuizServlet.java
+│   │   │       │   └── LeaderboardServlet.java
+│   │   │       │
+│   │   │       ├── dao/               # Data Access Objects (JDBC logic)
+│   │   │       │   ├── UserDAO.java
+│   │   │       │   ├── QuizDAO.java
+│   │   │       │   ├── QuestionDAO.java
+│   │   │       │   └── LeaderboardDAO.java
+│   │   │       │
+│   │   │       ├── model/             # POJOs (Data Models)
+│   │   │       │   ├── User.java
+│   │   │       │   ├── Quiz.java
+│   │   │       │   ├── Question.java
+│   │   │       │   ├── Answer.java
+│   │   │       │   └── LeaderboardEntry.java
+│   │   │       │
+│   │   │       └── util/              # Utility Classes
+│   │   │           ├── DBConnection.java
+│   │   │           ├── PasswordUtils.java
+│   │   │           └── ValidationUtils.java
+│   │   │
+│   │   ├── resources/
+│   │   │   └── db.properties          # Database config (URL, username, password)
+│   │   │
+│   │   ├── webapp/
+│   │   │   ├── WEB-INF/
+│   │   │   │   ├── web.xml            # Servlet mappings, security roles
+│   │   │   │   └── lib/               # External JARs (MySQL connector, JSTL, etc.)
+│   │   │   │
+│   │   │   ├── jsp/
+│   │   │   │   ├── admin/             # Admin JSPs
+│   │   │   │   │   ├── dashboard.jsp
+│   │   │   │   │   ├── addQuestion.jsp
+│   │   │   │   │   ├── createQuiz.jsp
+│   │   │   │   │   └── viewLeaderboard.jsp
+│   │   │   │   │
+│   │   │   │   ├── user/              # User JSPs
+│   │   │   │   │   ├── quizList.jsp
+│   │   │   │   │   ├── attemptQuiz.jsp
+│   │   │   │   │   └── leaderboard.jsp
+│   │   │   │   │
+│   │   │   │   └── common/            # Shared JSPs
+│   │   │   │       ├── login.jsp
+│   │   │   │       ├── register.jsp
+│   │   │   │       ├── header.jsp
+│   │   │   │       └── footer.jsp
+│   │   │   │
+│   │   │   ├── css/                   # Stylesheets
+│   │   │   │   └── style.css
+│   │   │   │
+│   │   │   ├── js/                    # JavaScript files
+│   │   │   │   └── quizTimer.js
+│   │   │   │
+│   │   │   └── images/                # Static images/icons
+│   │   │       └── logo.png
+│   │   │
+│   │   └── test/                      # JUnit tests for DAO and utilities
+│   │       └── UserDAOTest.java
+│   │
+├── pom.xml                            # Maven dependencies (Servlet API, JSP, JSTL, MySQL JDBC)
+└── README.md                          # Project documentation
