@@ -1,0 +1,90 @@
+drop database OnlineQuiz;
+CREATE DATABASE OnlineQuiz;
+USE OnlineQuiz;
+ 
+-- 1. Admin table (matches AdminDao: username, password)
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+ 
+-- 2. User table (matches UserLoginServlet: username, password)
+-- ✅ Use 'password' here because your servlet inserts/queries with 'password'
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN','USER') DEFAULT 'USER',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ 
+-- 3. Question table (matches QuestionDAO, AttemptQuizServlet: questionText, optionA–D, correctOption)
+CREATE TABLE question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(100),
+    questionText VARCHAR(500) NOT NULL,
+    optionA VARCHAR(255) NOT NULL,
+    optionB VARCHAR(255) NOT NULL,
+    optionC VARCHAR(255) NOT NULL,
+    optionD VARCHAR(255) NOT NULL,
+    correctOption VARCHAR(1) NOT NULL
+);
+ 
+-- 4. Quiz table (matches QuizDAO, CreateQuizServlet: name, category)
+CREATE TABLE quiz (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(100),
+    published BOOLEAN DEFAULT FALSE,
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES admin(id)
+);
+ 
+-- 5. Junction table (quiz ↔ questions)
+CREATE TABLE quiz_question (
+    quiz_id INT,
+    question_id INT,
+    PRIMARY KEY (quiz_id, question_id),
+    FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE,
+    FOREIGN KEY (question_id) REFERENCES question(id) ON DELETE CASCADE
+);
+ 
+-- 6. Result table (matches SubmitQuizServlet: result(user_id, quiz_id, score))
+CREATE TABLE result (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    quiz_id INT,
+    score INT,
+    taken_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (quiz_id) REFERENCES quiz(id)
+);
+-- Admins
+INSERT INTO admin (username, password) VALUES
+('admin1', 'adminpass'),
+('admin2', 'secure123');
+ 
+-- Users
+INSERT INTO user (username, email, password, role) VALUES
+('Alice', 'alice@example.com', 'alicepass', 'USER'),
+('Bob', 'bob@example.com', 'bobpass', 'USER');
+ 
+-- Questions
+INSERT INTO question (category, questionText, optionA, optionB, optionC, optionD, correctOption) VALUES
+('Java', 'Which keyword is used to inherit a class in Java?', 'extends', 'implements', 'inherit', 'super', 'A'),
+('SQL', 'Which SQL command is used to remove a table?', 'DELETE', 'DROP', 'REMOVE', 'TRUNCATE', 'B');
+ 
+-- Quizzes
+INSERT INTO quiz (name, category, published, created_by) VALUES
+('Java Basics Quiz', 'Java', TRUE, 1),
+('SQL Fundamentals Quiz', 'SQL', TRUE, 1);
+ 
+-- Link questions to quizzes
+INSERT INTO quiz_question (quiz_id, question_id) VALUES
+(1, 1),
+(2, 2);
+ 
+show tables;
