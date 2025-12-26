@@ -1,0 +1,226 @@
+<div class="about-layout">
+
+  <!-- Intro Header -->
+  <section class="about-header">
+    <h1>Who We Are</h1>
+    <p>
+      Raindrops Insurance is built to simplify health insurance
+      and make protection accessible for everyone.
+    </p>
+  </section>
+
+  <!-- Company Snapshot -->
+  <section class="company-snapshot">
+    <div class="snapshot-card">
+      <h3>Company Overview</h3>
+      <p><strong>Name:</strong> Raindrops Insurances Pvt. Ltd.</p>
+      <p><strong>Location:</strong> Chennai, Tamil Nadu, India</p>
+      <p><strong>Email:</strong> support@raindropsinsurance.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Customer Care:</strong> 1800-XXX-XXXX</p>
+    </div>
+
+    <div class="snapshot-visual">
+      <h3>Our Promise</h3>
+      <p>
+        We believe insurance should be transparent, affordable,
+        and dependable — especially when it matters most.
+      </p>
+    </div>
+  </section>
+
+  <!-- How It Works Timeline -->
+  <section class="process-timeline">
+    <h2>How Our Platform Works</h2>
+
+    <div class="timeline-step">
+      <span class="step-count">01</span>
+      <div class="step-info">
+        <h4>Explore Plans</h4>
+        <p>
+          Review available insurance plans and understand
+          coverage benefits clearly.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <span class="step-count">02</span>
+      <div class="step-info">
+        <h4>Personalize Your Premium</h4>
+        <p>
+          Answer a few health-related questions to receive
+          accurate premium estimates.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <span class="step-count">03</span>
+      <div class="step-info">
+        <h4>Secure Payment</h4>
+        <p>
+          Complete payment safely using trusted payment
+          gateways.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <span class="step-count">04</span>
+      <div class="step-info">
+        <h4>Instant Confirmation</h4>
+        <p>
+          Receive your policy confirmation immediately
+          after successful payment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights -->
+  <section class="feature-highlights">
+    <h2>What Sets Us Apart</h2>
+
+    <div class="highlight-grid">
+      <div class="highlight-box">Multiple Insurance Options</div>
+      <div class="highlight-box">Instant Policy Activation</div>
+      <div class="highlight-box">Secure Transactions</div>
+      <div class="highlight-box">Flexible Payment Modes</div>
+      <div class="highlight-box">Mobile-Friendly Experience</div>
+      <div class="highlight-box">Reliable Customer Support</div>
+    </div>
+  </section>
+
+</div>
+
+
+css 
+
+
+.about-layout {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1e293b;
+}
+
+/* Header */
+.about-header {
+  background: #0b1f33;
+  color: #ffffff;
+  text-align: center;
+  padding: 90px 12%;
+}
+
+.about-header h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.about-header p {
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Snapshot Section */
+.company-snapshot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 80px 12%;
+  background: #f8fafc;
+}
+
+.snapshot-card {
+  background: #ffffff;
+  padding: 35px;
+  border-left: 6px solid #38bdf8;
+}
+
+.snapshot-card h3 {
+  margin-bottom: 18px;
+}
+
+.snapshot-card p {
+  margin-bottom: 8px;
+  color: #475569;
+}
+
+.snapshot-visual h3 {
+  margin-bottom: 14px;
+}
+
+.snapshot-visual p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Timeline */
+.process-timeline {
+  padding: 80px 12%;
+}
+
+.process-timeline h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 2.4rem;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.step-count {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.step-info h4 {
+  margin-bottom: 10px;
+}
+
+.step-info p {
+  max-width: 520px;
+  color: #475569;
+}
+
+/* Highlights */
+.feature-highlights {
+  background: #0b1f33;
+  color: #ffffff;
+  padding: 80px 12%;
+  text-align: center;
+}
+
+.feature-highlights h2 {
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.highlight-box {
+  background: #102a44;
+  padding: 18px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .company-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-step {
+    flex-direction: column;
+  }
+}
