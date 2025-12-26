@@ -105,104 +105,121 @@
   css
 
 
-  <div class="insurance-layout">
+.insurance-layout {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1e293b;
+}
 
-  <!-- Top Statement -->
-  <header class="headline-banner">
-    <h1>Insurance Made for Real Life</h1>
-    <p>
-      Raindrops Insurance simplifies protection so you can focus on living,
-      not worrying about tomorrow.
-    </p>
-    <a routerLink="/plans" class="cta-main">Check Coverage Options</a>
-  </header>
+/* Headline */
+.headline-banner {
+  background: #0b1f33;
+  color: #ffffff;
+  padding: 90px 12%;
+  text-align: center;
+}
 
-  <!-- Journey Section -->
-  <section class="journey-section">
-    <h2>Your Protection Journey</h2>
+.headline-banner h1 {
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+}
 
-    <div class="journey-step">
-      <span class="step-number">01</span>
-      <div class="step-text">
-        <h4>Choose Your Coverage</h4>
-        <p>
-          Select from health, life, and family insurance designed
-          to grow with your needs.
-        </p>
-      </div>
-    </div>
+.headline-banner p {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
+}
 
-    <div class="journey-step">
-      <span class="step-number">02</span>
-      <div class="step-text">
-        <h4>Activate Instantly</h4>
-        <p>
-          No paperwork delays. Your protection begins the moment
-          you sign up.
-        </p>
-      </div>
-    </div>
+.cta-main {
+  background: #38bdf8;
+  color: #0b1f33;
+  padding: 14px 34px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
 
-    <div class="journey-step">
-      <span class="step-number">03</span>
-      <div class="step-text">
-        <h4>Stay Supported</h4>
-        <p>
-          Our experts remain available 24/7 to guide you through
-          claims and coverage updates.
-        </p>
-      </div>
-    </div>
-  </section>
+/* Journey */
+.journey-section {
+  padding: 80px 12%;
+}
 
-  <!-- Stats Strip -->
-  <section class="stats-strip">
-    <div class="stat-item">
-      <h3>10K+</h3>
-      <p>Families Protected</p>
-    </div>
-    <div class="stat-item">
-      <h3>98%</h3>
-      <p>Claim Success Rate</p>
-    </div>
-    <div class="stat-item">
-      <h3>24/7</h3>
-      <p>Customer Assistance</p>
-    </div>
-  </section>
+.journey-section h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 2.4rem;
+}
 
-  <!-- Information Blocks -->
-  <section class="info-panels">
-    <div class="info-panel">
-      <h3>Clear Policies</h3>
-      <p>
-        No hidden clauses or confusing terms. Everything is written
-        in simple, understandable language.
-      </p>
-    </div>
+.journey-step {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 45px;
+}
 
-    <div class="info-panel highlight">
-      <h3>Cost Control</h3>
-      <p>
-        Pay only for what you need with flexible plans that
-        adapt to your lifestyle.
-      </p>
-    </div>
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
 
-    <div class="info-panel">
-      <h3>Reliable Claims</h3>
-      <p>
-        Fast claim processing designed to support you when
-        it matters most.
-      </p>
-    </div>
-  </section>
+.step-text h4 {
+  margin-bottom: 10px;
+}
 
-  <!-- Bottom Action -->
-  <footer class="final-action">
-    <h2>Ready to Secure Your Future?</h2>
-    <p>Explore plans designed for individuals and families.</p>
-    <a routerLink="/plans" class="cta-secondary">View Plans</a>
-  </footer>
+.step-text p {
+  color: #475569;
+  max-width: 520px;
+}
 
-</div>
+/* Stats */
+.stats-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 10%;
+  background: #f1f5f9;
+}
+
+.stat-item h3 {
+  font-size: 2.4rem;
+  color: #0b1f33;
+}
+
+.stat-item p {
+  margin-top: 6px;
+  color: #64748b;
+}
+
+/* Info Panels */
+.info-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 70px 12%;
+}
+
+.info-panel {
+  padding: 30px;
+  border-left: 6px solid #38bdf8;
+  background: #ffffff;
+}
+
+.info-panel.highlight {
+  background: #e0f2fe;
+}
+
+/* Footer CTA */
+.final-action {
+  background: #0b1f33;
+  color: #ffffff;
+  text-align: center;
+  padding: 70px 12%;
+}
+
+.cta-secondary {
+  display: inline-block;
+  margin-top: 20px;
+  color: #38bdf8;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
