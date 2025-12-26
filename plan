@@ -1,0 +1,182 @@
+<div class="plans-layout">
+
+  <!-- Page Header -->
+  <section class="plans-header">
+    <h1>Choose the Right Insurance Plan</h1>
+    <p>
+      Every plan is designed to protect you and your family with
+      transparent pricing and reliable coverage.
+    </p>
+  </section>
+
+  <!-- Plans List -->
+  <section class="plans-list">
+
+    <!-- Plan Card -->
+    <article class="plan-item" *ngFor="let plan of plans">
+      <div class="plan-info">
+        <h2>{{ plan.planName }}</h2>
+
+        <p class="plan-desc">
+          {{ plan.description }}
+        </p>
+
+        <ul class="plan-meta">
+          <li>
+            <strong>Validity:</strong> {{ plan.validity }} days
+          </li>
+          <li>
+            <strong>Base Amount:</strong> ₹{{ plan.baseAmt }}
+          </li>
+          <li>
+            <strong>Coverage:</strong> Hospitalization & Emergency Care
+          </li>
+        </ul>
+      </div>
+
+      <div class="plan-action">
+        <div class="price-tag">
+          <span class="currency">₹</span>
+          <span class="amount">{{ plan.baseAmt }}</span>
+          <span class="label">Base</span>
+        </div>
+<div class="plan-footer">
+  <button
+    class="btn btn-primary w-100"
+    (click)="viewPlanDetails(plan.planId)"
+  >
+    View Details <i class="bi bi-arrow-right"></i>
+  </button>
+</div>
+
+      </div>
+    </article>
+
+  </section>
+
+</div>
+
+
+css
+
+.plans-layout {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1e293b;
+}
+
+/* Header */
+.plans-header {
+  background: #0b1f33;
+  color: #ffffff;
+  padding: 80px 12%;
+  text-align: center;
+}
+
+.plans-header h1 {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.plans-header p {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Plan List */
+.plans-list {
+  padding: 80px 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Individual Plan */
+.plan-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  background: #ffffff;
+  padding: 40px;
+  border-left: 6px solid #38bdf8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.plan-info h2 {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+}
+
+.plan-desc {
+  color: #475569;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.plan-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-meta li {
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+/* Action Area */
+.plan-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price-tag {
+  text-align: right;
+}
+
+.price-tag .currency {
+  font-size: 1.2rem;
+}
+
+.price-tag .amount {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 0 4px;
+}
+
+.price-tag .label {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Button */
+.select-btn {
+  margin-top: 20px;
+  padding: 12px 26px;
+  background: #38bdf8;
+  color: #0b1f33;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .plan-item {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .plan-action {
+    align-items: flex-start;
+  }
+}
