@@ -1,0 +1,208 @@
+<div class="insurance-layout">
+
+  <!-- Top Statement -->
+  <header class="headline-banner">
+    <h1>Insurance Made for Real Life</h1>
+    <p>
+      Raindrops Insurance simplifies protection so you can focus on living,
+      not worrying about tomorrow.
+    </p>
+    <a routerLink="/plans" class="cta-main">Check Coverage Options</a>
+  </header>
+
+  <!-- Journey Section -->
+  <section class="journey-section">
+    <h2>Your Protection Journey</h2>
+
+    <div class="journey-step">
+      <span class="step-number">01</span>
+      <div class="step-text">
+        <h4>Choose Your Coverage</h4>
+        <p>
+          Select from health, life, and family insurance designed
+          to grow with your needs.
+        </p>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <span class="step-number">02</span>
+      <div class="step-text">
+        <h4>Activate Instantly</h4>
+        <p>
+          No paperwork delays. Your protection begins the moment
+          you sign up.
+        </p>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <span class="step-number">03</span>
+      <div class="step-text">
+        <h4>Stay Supported</h4>
+        <p>
+          Our experts remain available 24/7 to guide you through
+          claims and coverage updates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="stats-strip">
+    <div class="stat-item">
+      <h3>10K+</h3>
+      <p>Families Protected</p>
+    </div>
+    <div class="stat-item">
+      <h3>98%</h3>
+      <p>Claim Success Rate</p>
+    </div>
+    <div class="stat-item">
+      <h3>24/7</h3>
+      <p>Customer Assistance</p>
+    </div>
+  </section>
+
+  <!-- Information Blocks -->
+  <section class="info-panels">
+    <div class="info-panel">
+      <h3>Clear Policies</h3>
+      <p>
+        No hidden clauses or confusing terms. Everything is written
+        in simple, understandable language.
+      </p>
+    </div>
+
+    <div class="info-panel highlight">
+      <h3>Cost Control</h3>
+      <p>
+        Pay only for what you need with flexible plans that
+        adapt to your lifestyle.
+      </p>
+    </div>
+
+    <div class="info-panel">
+      <h3>Reliable Claims</h3>
+      <p>
+        Fast claim processing designed to support you when
+        it matters most.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bottom Action -->
+  <footer class="final-action">
+    <h2>Ready to Secure Your Future?</h2>
+    <p>Explore plans designed for individuals and families.</p>
+    <a routerLink="/plans" class="cta-secondary">View Plans</a>
+  </footer>
+
+</div>
+
+
+
+  css
+
+
+  <div class="insurance-layout">
+
+  <!-- Top Statement -->
+  <header class="headline-banner">
+    <h1>Insurance Made for Real Life</h1>
+    <p>
+      Raindrops Insurance simplifies protection so you can focus on living,
+      not worrying about tomorrow.
+    </p>
+    <a routerLink="/plans" class="cta-main">Check Coverage Options</a>
+  </header>
+
+  <!-- Journey Section -->
+  <section class="journey-section">
+    <h2>Your Protection Journey</h2>
+
+    <div class="journey-step">
+      <span class="step-number">01</span>
+      <div class="step-text">
+        <h4>Choose Your Coverage</h4>
+        <p>
+          Select from health, life, and family insurance designed
+          to grow with your needs.
+        </p>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <span class="step-number">02</span>
+      <div class="step-text">
+        <h4>Activate Instantly</h4>
+        <p>
+          No paperwork delays. Your protection begins the moment
+          you sign up.
+        </p>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <span class="step-number">03</span>
+      <div class="step-text">
+        <h4>Stay Supported</h4>
+        <p>
+          Our experts remain available 24/7 to guide you through
+          claims and coverage updates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="stats-strip">
+    <div class="stat-item">
+      <h3>10K+</h3>
+      <p>Families Protected</p>
+    </div>
+    <div class="stat-item">
+      <h3>98%</h3>
+      <p>Claim Success Rate</p>
+    </div>
+    <div class="stat-item">
+      <h3>24/7</h3>
+      <p>Customer Assistance</p>
+    </div>
+  </section>
+
+  <!-- Information Blocks -->
+  <section class="info-panels">
+    <div class="info-panel">
+      <h3>Clear Policies</h3>
+      <p>
+        No hidden clauses or confusing terms. Everything is written
+        in simple, understandable language.
+      </p>
+    </div>
+
+    <div class="info-panel highlight">
+      <h3>Cost Control</h3>
+      <p>
+        Pay only for what you need with flexible plans that
+        adapt to your lifestyle.
+      </p>
+    </div>
+
+    <div class="info-panel">
+      <h3>Reliable Claims</h3>
+      <p>
+        Fast claim processing designed to support you when
+        it matters most.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bottom Action -->
+  <footer class="final-action">
+    <h2>Ready to Secure Your Future?</h2>
+    <p>Explore plans designed for individuals and families.</p>
+    <a routerLink="/plans" class="cta-secondary">View Plans</a>
+  </footer>
+
+</div>
