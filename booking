@@ -1,0 +1,376 @@
+<div class="booking-layout">
+  <div class="container py-5">
+
+    <!-- Page Title -->
+    <div class="booking-title text-center mb-5">
+      <h1>Finalize Your Insurance</h1>
+      <p>Provide a few details to activate your coverage instantly</p>
+    </div>
+
+    <div class="row g-5">
+
+      <!-- LEFT : FORM -->
+      <div class="col-lg-7">
+        <div class="editorial-card">
+
+          <h3 class="section-heading">Personal Details</h3>
+
+          <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+
+            <!-- Name -->
+            <div class="mb-4">
+              <label class="field-label">Full Name *</label>
+              <input
+                type="text"
+                class="form-control editorial-input"
+                formControlName="name"
+                [class.is-invalid]="submitted && f['name'].errors"
+                placeholder="Enter your full name">
+              <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
+                <span *ngIf="f['name'].errors['required']">Name is required</span>
+                <span *ngIf="f['name'].errors['minlength']">Minimum 2 characters</span>
+                <span *ngIf="f['name'].errors['pattern']">Only letters allowed</span>
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="mb-4">
+              <label class="field-label">City *</label>
+              <input
+                type="text"
+                class="form-control editorial-input"
+                formControlName="city"
+                [class.is-invalid]="submitted && f['city'].errors"
+                placeholder="Enter your city">
+              <div class="invalid-feedback" *ngIf="submitted && f['city'].errors">
+                <span *ngIf="f['city'].errors['required']">City is required</span>
+                <span *ngIf="f['city'].errors['minlength']">Minimum 2 characters</span>
+              </div>
+            </div>
+
+            <!-- Phone + Age -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label class="field-label">Phone *</label>
+                <input
+                  type="tel"
+                  class="form-control editorial-input"
+                  formControlName="phone"
+                  [class.is-invalid]="submitted && f['phone'].errors"
+                  placeholder="10 digit number"
+                  maxlength="10">
+                <div class="invalid-feedback" *ngIf="submitted && f['phone'].errors">
+                  <span *ngIf="f['phone'].errors['required']">Phone required</span>
+                  <span *ngIf="f['phone'].errors['pattern']">Must be 10 digits</span>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="field-label">Age *</label>
+                <input
+                  type="number"
+                  class="form-control editorial-input"
+                  formControlName="age"
+                  [class.is-invalid]="submitted && f['age'].errors"
+                  min="18"
+                  max="100"
+                  placeholder="Your age">
+                <div class="invalid-feedback" *ngIf="submitted && f['age'].errors">
+                  <span *ngIf="f['age'].errors['required']">Age required</span>
+                  <span *ngIf="f['age'].errors['min'] || f['age'].errors['max']">
+                    Age must be between 18 and 100
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-5">
+              <label class="field-label">Email *</label>
+              <input
+                type="email"
+                class="form-control editorial-input"
+                formControlName="email"
+                [class.is-invalid]="submitted && f['email'].errors"
+                placeholder="your@email.com">
+              <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+                <span *ngIf="f['email'].errors['required']">Email required</span>
+                <span *ngIf="f['email'].errors['email']">Invalid email</span>
+              </div>
+            </div>
+
+            <!-- PAYMENT -->
+            <h3 class="section-heading mt-5">Payment Details</h3>
+
+            <!-- Mode -->
+            <div class="mb-4">
+              <label class="field-label">Payment Mode *</label>
+              <select
+                class="form-select editorial-input"
+                formControlName="paymentMode"
+                [class.is-invalid]="submitted && f['paymentMode'].errors">
+                <option value="">Select payment mode</option>
+                <option *ngFor="let mode of paymentModes" [value]="mode">
+                  {{ mode }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="submitted && f['paymentMode'].errors">
+                Payment mode required
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="mb-4">
+              <label class="field-label">Card Number *</label>
+              <input
+                type="text"
+                class="form-control editorial-input"
+                formControlName="cardNumber"
+                [class.is-invalid]="submitted && f['cardNumber'].errors"
+                placeholder="1234-5678-9012"
+                (input)="formatCardNumber($event)"
+                maxlength="14">
+              <div class="invalid-feedback" *ngIf="submitted && f['cardNumber'].errors">
+                <span *ngIf="f['cardNumber'].errors['required']">Required</span>
+                <span *ngIf="f['cardNumber'].errors['pattern']">Invalid format</span>
+              </div>
+            </div>
+
+            <!-- Frequency -->
+            <div class="mb-5">
+              <label class="field-label">Payment Frequency *</label>
+              <select
+                class="form-select editorial-input"
+                formControlName="paymentFreq"
+                [class.is-invalid]="submitted && f['paymentFreq'].errors">
+                <option value="">Select frequency</option>
+                <option *ngFor="let freq of paymentFrequencies" [value]="freq">
+                  {{ freq }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="submitted && f['paymentFreq'].errors">
+                Required
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-outline-light"
+                (click)="cancel()"
+                [disabled]="loading">
+                Cancel
+              </button>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="loading">
+                <span *ngIf="!loading">Confirm Booking</span>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT : SUMMARY -->
+      <div class="col-lg-5">
+        <div class="summary-panel-dark">
+
+          <h3 class="section-heading">Plan Summary</h3>
+
+          <h4 class="plan-name">{{ plan?.planName }}</h4>
+          <p class="plan-desc">{{ plan?.description }}</p>
+
+          <div class="divider"></div>
+
+          <div class="summary-line">
+            <span>Base Amount</span>
+            <strong>₹{{ plan?.baseAmt }}</strong>
+          </div>
+          <div class="summary-line">
+            <span>Validity</span>
+            <strong>{{ plan?.validity }} days</strong>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="premium-box">
+            <p>Your Premium</p>
+            <h2>₹{{ premium }}</h2>
+          </div>
+
+          <div class="summary-note">
+            Insurance activates immediately after payment
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+css 
+
+/* Page Wrapper */
+.booking-container {
+  background: #0b1f33;
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+/* Header */
+.booking-container h1,
+.booking-container h3,
+.booking-container h5 {
+  color: #ffffff;
+}
+
+.booking-container .lead {
+  color: #cbd5e1;
+}
+
+/* Cards */
+.booking-card,
+.summary-card {
+  background: #0f2a44;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Labels */
+.form-label {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  background-color: #0b1f33;
+  border: 1px solid #1e3a5f;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #0b1f33;
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: none;
+}
+
+/* Validation */
+.is-invalid {
+  border-color: #ef4444;
+}
+
+.invalid-feedback {
+  color: #fca5a5;
+}
+
+/* Section Titles */
+.booking-card h3,
+.summary-card h3 {
+  border-bottom: 1px solid #1e3a5f;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+/* Buttons */
+.btn-success {
+  background-color: #38bdf8;
+  border: none;
+  color: #0b1f33;
+  font-weight: 700;
+}
+
+.btn-success:hover {
+  background-color: #0ea5e9;
+}
+
+.btn-outline-secondary {
+  border-color: #64748b;
+  color: #e5e7eb;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #1e293b;
+  border-color: #94a3b8;
+}
+
+/* Summary */
+.plan-summary h5 {
+  color: #38bdf8;
+}
+
+.summary-row,
+.premium-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #1e3a5f;
+}
+
+/* Premium Highlight */
+.premium-summary {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  padding: 18px;
+  border-radius: 10px;
+  color: #0b1f33;
+}
+
+.premium-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Alerts */
+.alert-success {
+  background-color: rgba(56, 189, 248, 0.15);
+  border: 1px solid #38bdf8;
+  color: #e0f2fe;
+}
+
+.alert-success i {
+  color: #38bdf8;
+}
+
+/* Feature List */
+.features-list {
+  margin-top: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #cbd5e1;
+}
+
+/* Spinner */
+.spinner-border {
+  color: #38bdf8;
+}
+
+/* Sticky Summary Fix */
+.sticky-top {
+  top: 90px;
+}
